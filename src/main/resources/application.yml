@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: order-service
+  profiles:
+    active: local
+  config:
+    import: "configserver:"
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: config-server
+server:
+  port: 0
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:19090/eureka/
+
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
+
+
+message: "default message"
+
+
